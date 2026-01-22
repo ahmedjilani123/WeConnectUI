@@ -17,11 +17,15 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "model/AvatarList.json",
-        "type": "JSON"
+        "uri": "/odata/v2/weconnect_srv/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
     }
-  }
-    
   },
   "sap.ui": {
     "technology": "UI5",
@@ -59,9 +63,14 @@
           "bundleName": "aj.sap.weconnect.i18n.i18n"
         }
       },
-      "Modelm":{
+      "Modelm": {
         "dataSource": "mainService",
         "type": "sap.ui.model.json.JSONModel"
+      },
+      "mainService": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
       }
     },
     "resources": {
@@ -94,37 +103,34 @@
             "TargetInitial"
           ]
         },
-         {
+        {
           "name": "MainRouter",
           "pattern": "mainpage",
           "target": [
             "TargetMain"
           ]
         },
-         {
+        {
           "name": "DetailRouter",
           "pattern": "detail",
           "target": [
             "TargetDetail"
           ]
         }
-       
-       
       ],
       "targets": {
         "TargetInitial": {
           "id": "Initial",
           "name": "Initial"
         },
-         "TargetMain": {
+        "TargetMain": {
           "id": "MainId",
           "name": "Main"
         },
-         "TargetDetail": {
+        "TargetDetail": {
           "id": "DetailId",
           "name": "Detail"
         },
-       
         "NotFound": {
           "id": "NotFound",
           "controlId": "app",

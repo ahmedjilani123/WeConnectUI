@@ -16,8 +16,9 @@ server:
             - /test-resources
           url: https://ui5.sap.com
         backend:
-          - url: https://trackerfinance.onrender.com
-            path: /odata
+          - path: /odata
+            url: https://da461a83trial-dev-weconnect-srv.cfapps.us10-001.hana.ondemand.com
+            destination: WeConnectM
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
