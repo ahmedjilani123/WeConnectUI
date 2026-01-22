@@ -1,0 +1,99 @@
+/* Enter your custom styles here */
+.MainLoginPage{
+    background-image: url("../images/LoginPageM.png") !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+.customInputClass {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 2px;
+    margin-bottom: 10px;
+}
+.customInputClass::placeholder {
+    color: rgb(23, 208, 85);
+ font-weight: 400;
+ font-family: 'Times New Roman', Times, serif;
+      font-size: 0.9rem;  
+    opacity: 0.8;
+}
+.customInputClass:focus{
+    border: 1px solid blue !important;
+}
+.customButtonClass {
+    background-color: white;
+    font-size: small;
+    font-weight: 600;
+    border-radius: 2px;
+    margin-top: 1.10rem;
+    border: 2px solid white;
+    color:#0040B0;
+}
+
+.customButtonClass:hover {
+    background-color: white;
+    border-color: white;
+    cursor: pointer;
+    color: black;
+}
+
+.customButtonClass:active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.forgotPassText{
+    color: rgb(7, 240, 120) !important;
+    margin-left: 6.80rem;
+   
+}
+
+/* login page css end */
+.TextClassHeader{
+  color: rgb(7, 240, 120) !important;
+}
+.LabelClassHeader{
+    color: rgb(7, 240, 120) !important;
+}
+.HeaderCardCss{
+    background-image:linear-gradient(to right,#925FE2,#DFCFF7) !important;
+    
+  color: rgb(7, 240, 120) !important;
+}
+.SideNavigationCss{
+ 
+    background-image:linear-gradient(to bottom,white,#ffeaeb) !important;
+}
+.HeaderCssTt{
+  
+    
+      background-image:linear-gradient(to right,white,#ffeaeb) !important;
+        color: rgb(7, 240, 120) !important;
+}
+.MainHBOXDiv {
+  width: auto !important;
+  border-radius: 12px;
+  cursor: pointer !important;
+  margin-top: 1rem;
+  margin-left: 2.25rem !important;
+  margin-right: 2.25rem !important;
+  overflow-wrap: break-word !important;
+
+  background-image: linear-gradient(
+    135deg,
+    #1E88E5,
+    #42A5F5,
+    #66BB6A,
+    #43A047
+  );
+
+  box-shadow: 
+    0 6px 12px rgba(30, 136, 229, 0.25),
+    0 10px 24px rgba(67, 160, 71, 0.25) !important;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.MainTitleClass{
+    color:white !important;
+}
