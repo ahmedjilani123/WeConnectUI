@@ -1,10 +1,10 @@
 sap.ui.define([
     "sap/ui/core/UIComponent",
-    "aj/sap/weconnect/model/models"
+    "weconnectg/model/models"
 ], (UIComponent, models) => {
     "use strict";
 
-    return UIComponent.extend("aj.sap.weconnect.Component", {
+    return UIComponent.extend("weconnectg.Component", {
         metadata: {
             manifest: "json",
             interfaces: [
@@ -17,7 +17,18 @@ sap.ui.define([
             UIComponent.prototype.init.apply(this, arguments);
 
             // set the device model
-       
+       var createModel = this.getModel("CreateM");
+       createModel.setData({
+        remark:"",
+        weeks_ID:""
+       })
+       createModel.refresh(true);
+        var createModel = this.getModel("WeekCreateM");
+       createModel.setData({
+        currRemark:""
+      
+       })
+       createModel.refresh(true);
             // enable routing
             this.getRouter().initialize();
         }

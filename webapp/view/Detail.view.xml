@@ -1,4 +1,4 @@
-<mvc:View controllerName="aj.sap.weconnect.controller.Detail"
+<mvc:View controllerName="weconnectg.controller.Detail"
     displayBlock="true"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
@@ -6,111 +6,43 @@
  <Page id="DetailId" title="Detail View" showHeader="false" showFooter="true" floatingFooter="true">
  <content>
  	 <ObjectHeader 
-		icon="test-resources/sap/m/images/Woman_04.png"
+		icon="sap-icon://customer"
 		iconDensityAware="false"
-		iconAlt="Denise Smith"
+		iconAlt="Ahmed Jilani"
 		imageShape="Circle"
 		responsive="true"
-		title="Denise Smith"
+		title="Ahmed Jilani"
 		intro="Senior Developer"
 		class="sapUiResponsivePadding--header" >
      
-			<ObjectAttribute title="Email address" text="DeniseSmith@sap.com" active="false" />
+			<ObjectAttribute title="Email address" text="{CreateM>/modifiedBy}" active="false" />
 		
             <statuses>
         
             	<ObjectStatus
 						
-							text="Transfer" 	icon="sap-icon://notes"
+							text="{path:'CreateM>/status_code', formatter:'.formatter.statusText'}"
 							active="true"
+                            press="StatusChangeHandler"
 							inverted="true"
-							state="Warning" />
+							icon="{path:'CreateM>/status_code', formatter:'.formatter.statusIcon'}"
+							state="{path:'CreateM>/status_code', formatter:'.formatter.statusS'}" />
             </statuses>
 	</ObjectHeader>
- 	<List headerText="Weekly Updates (1)" inset="true"
-		showSeparators="Inner"
+ 	<List headerText="Weekly Updates ({= ${CreateM>/daywise/results}.length})" inset="true"
+		showSeparators="Inner" items="{CreateM>/daywise/results}"
 		>
 		<FeedListItem
-			sender="Ahmed"
+			sender="{CreateM>createdBy}"
 			
 			senderPress="onSenderPress"
 			iconPress="onIconPress"
-			timestamp="20 Jan 2026"
+			timestamp="{path:'CreateM>date',type:'sap.ui.model.type.Date'}"
             info="Connect Update"
-			text="Planning phase is in progress.Initial requirements have been discussed.Team allocation is partially completed.Timeline is being finalized.\nAwaiting final approval."
+
+			text="{CreateM>remark}"
 			convertLinksToAnchorTags="All"/>
-            <FeedListItem
-			sender="Ahmed"
-			
-			senderPress="onSenderPress"
-			iconPress="onIconPress"
-			timestamp="20 Jan 2026"
-            info="Connect Update"
-			text="Planning phase is in progress.Initial requirements have been discussed.Team allocation is partially completed.Timeline is being finalized.\nAwaiting final approval."
-			convertLinksToAnchorTags="All"/>
-            <FeedListItem
-			sender="Ahmed"
-			
-			senderPress="onSenderPress"
-			iconPress="onIconPress"
-			timestamp="20 Jan 2026"
-            info="Connect Update"
-			text="Planning phase is in progress.Initial requirements have been discussed.Team allocation is partially completed.Timeline is being finalized.\nAwaiting final approval."
-			convertLinksToAnchorTags="All"/>
-            <FeedListItem
-			sender="Ahmed"
-			
-			senderPress="onSenderPress"
-			iconPress="onIconPress"
-			timestamp="20 Jan 2026"
-            info="Connect Update"
-			text="Planning phase is in progress.Initial requirements have been discussed.Team allocation is partially completed.Timeline is being finalized.\nAwaiting final approval."
-			convertLinksToAnchorTags="All"/>
-            <FeedListItem
-			sender="Ahmed"
-			
-			senderPress="onSenderPress"
-			iconPress="onIconPress"
-			timestamp="20 Jan 2026"
-            info="Connect Update"
-			text="Planning phase is in progress.Initial requirements have been discussed.Team allocation is partially completed.Timeline is being finalized.\nAwaiting final approval."
-			convertLinksToAnchorTags="All"/>
-            <FeedListItem
-			sender="Ahmed"
-			
-			senderPress="onSenderPress"
-			iconPress="onIconPress"
-			timestamp="20 Jan 2026"
-            info="Connect Update"
-			text="Planning phase is in progress.Initial requirements have been discussed.Team allocation is partially completed.Timeline is being finalized.\nAwaiting final approval."
-			convertLinksToAnchorTags="All"/>
-            <FeedListItem
-			sender="Ahmed"
-			
-			senderPress="onSenderPress"
-			iconPress="onIconPress"
-			timestamp="20 Jan 2026"
-            info="Connect Update"
-			text="Planning phase is in progress.Initial requirements have been discussed.Team allocation is partially completed.Timeline is being finalized.\nAwaiting final approval."
-			convertLinksToAnchorTags="All"/>
-            <FeedListItem
-			sender="Ahmed"
-			
-			senderPress="onSenderPress"
-			iconPress="onIconPress"
-			timestamp="20 Jan 2026"
-            info="Connect Update"
-			text="Planning phase is in progress.Initial requirements have been discussed.Team allocation is partially completed.Timeline is being finalized.\nAwaiting final approval."
-			convertLinksToAnchorTags="All"/>
-            <FeedListItem
-			sender="Ahmed"
-			
-			senderPress="onSenderPress"
-			iconPress="onIconPress"
-			timestamp="20 Jan 2026"
-            info="Connect Update"
-			text="Planning phase is in progress.Initial requirements have been discussed.Team allocation is partially completed.Timeline is being finalized.\nAwaiting final approval."
-			convertLinksToAnchorTags="All"/>
+           
             </List>
  </content>
    <footer>

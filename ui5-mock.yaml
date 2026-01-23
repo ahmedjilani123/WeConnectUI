@@ -2,7 +2,7 @@
 
 specVersion: "3.1"
 metadata:
-  name: aj.sap.weconnect
+  name: weconnectg
 type: application
 server:
   customMiddleware:
@@ -14,11 +14,12 @@ server:
           path:
             - /resources
             - /test-resources
-          url: https://ui5.sap.com
+          url: https://sapui5.hana.ondemand.com
         backend:
-          - path: /odata
-            url: https://da461a83trial-dev-weconnect-srv.cfapps.us10-001.hana.ondemand.com
+          - url: https://da461a83trial-dev-weconnect-srv.cfapps.us10-001.hana.ondemand.com
+            authenticationType: OAuth2UserTokenExchange
             destination: WeConnectM
+            path: /odata/v2
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
@@ -28,7 +29,7 @@ server:
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: aj.sap.weconnect
+        component: weconnectg
         ui5Theme: sap_horizon
     - name: sap-fe-mockserver
       beforeMiddleware: csp

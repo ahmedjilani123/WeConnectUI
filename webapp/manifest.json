@@ -1,7 +1,7 @@
 {
   "_version": "1.60.0",
   "sap.app": {
-    "id": "aj.sap.weconnect",
+    "id": "weconnectg",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -23,6 +23,20 @@
           "annotations": [],
           "localUri": "localService/mainService/metadata.xml",
           "odataVersion": "2.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "weconnectg-display": {
+          "semanticObject": "weconnectg",
+          "action": "display",
+          "title": "{{weconnectg-display.flpTitle}}",
+          "subTitle": "{{weconnectg-display.flpSubtitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
         }
       }
     }
@@ -60,17 +74,25 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "aj.sap.weconnect.i18n.i18n"
+          "bundleName": "weconnectg.i18n.i18n"
         }
       },
       "Modelm": {
-        "dataSource": "mainService",
+        "type": "sap.ui.model.json.JSONModel"
+      },
+      "CreateM": {
+        "type": "sap.ui.model.json.JSONModel"
+      },
+       "WeekCreateM": {
         "type": "sap.ui.model.json.JSONModel"
       },
       "mainService": {
         "dataSource": "mainService",
         "preload": true,
         "settings": {}
+      },
+      "DetailM": {
+        "type": "sap.ui.model.json.JSONModel"
       }
     },
     "resources": {
@@ -88,9 +110,9 @@
         "transition": "slide",
         "type": "View",
         "viewType": "XML",
-        "path": "aj.sap.weconnect.view",
+        "path": "weconnectg.view",
         "async": true,
-        "viewPath": "aj.sap.weconnect.view",
+        "viewPath": "weconnectg.view",
         "bypassed": {
           "target": "NotFound"
         }
@@ -100,19 +122,12 @@
           "name": "RouteInitial",
           "pattern": ":?query:",
           "target": [
-            "TargetInitial"
-          ]
-        },
-        {
-          "name": "MainRouter",
-          "pattern": "mainpage",
-          "target": [
             "TargetMain"
           ]
         },
         {
           "name": "DetailRouter",
-          "pattern": "detail",
+          "pattern": "detail/{id}",
           "target": [
             "TargetDetail"
           ]
@@ -141,9 +156,13 @@
       }
     },
     "rootView": {
-      "viewName": "aj.sap.weconnect.view.App",
+      "viewName": "weconnectg.view.App",
       "type": "XML",
       "id": "App"
     }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "weconnectg"
   }
 }

@@ -3,16 +3,15 @@
 <customHeader>
 <OverflowToolbar >
 
-<Title text="Update Notes"></Title>
+<Title text="Create Notes"></Title>
 
 </OverflowToolbar>
 </customHeader>
 <content>
 <form:SimpleForm >
 <form:content>
-
 <Label text="Remark/Note Today"></Label>
-<TextArea cols="20" rows="4" value="{CreateM>/remark}"></TextArea>
+<TextArea cols="20" rows="4" value="{WeekCreateM>/currRemark}"></TextArea>
 </form:content>
 </form:SimpleForm>
 </content>
@@ -20,7 +19,7 @@
 <Button text="Close" press="CloseUpdatePress"></Button>
 </beginButton>
 <endButton>
-<Button text="Save" press="onSaveEditHandler"></Button>
+<Button text="Create" press="onSaveNewHandler"></Button>
 </endButton>
 </Dialog>
 </core:FragmentDefinition>

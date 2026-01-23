@@ -1,46 +1,59 @@
 sap.ui.define([],function(){
 "use strict";
 return{
- statusText:function(sStatus){
+ statusS:function(sStatus){
     switch(sStatus){
-        case "A":
+        case "O":
             return "Indication15";
         case "R":
             return "Indication16";
         case "W":
+            return "Indication20";
+         case "I":
+            return "Indication18";
+         case "C":
+            return "Indication14";
+        case "T":
             return "Indication13";
         default:
-            return "Indication18";
+            return "Indication15";
     }
 },
-formatYYYYMMDD: function (sDate) {
-  if (!sDate) {
-    return "";
-  }
-
-  let oDate;
-
-  // Case 1: yyyyMMdd → 20240112
-  if (/^\d{8}$/.test(sDate)) {
-    const year = sDate.substring(0, 4);
-    const month = sDate.substring(4, 6);
-    const day = sDate.substring(6, 8);
-    oDate = new Date(`${year}-${month}-${day}`);
-  }
-  // Case 2: yyyy-MM-dd → 2024-01-12
-  else if (/^\d{4}-\d{2}-\d{2}$/.test(sDate)) {
-    oDate = new Date(sDate);
-  }
-  // Invalid format
-  else {
-    return "";
-  }
-
-  return oDate.toLocaleDateString("en-GB", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric"
-  });
+statusText:function(sStatus){
+    switch(sStatus){
+        case "O":
+            return "Open";
+        case "R":
+            return "Received";
+        case "W":
+            return "Waiting";
+         case "I":
+            return "In Progress";
+         case "C":
+            return "Completed";
+        case "T":
+            return "Transfer";
+        default:
+            return "Open";
+    }
+},
+statusIcon:function(sStatus){
+   switch (sStatus) {
+                case "O":
+                    return "sap-icon://status-inactive";
+                case "R":
+                    return "sap-icon://download";
+                case "W":
+                    return "sap-icon://pending";
+                case "I":
+                    return "sap-icon://process";
+                case "C":
+                    return "sap-icon://complete";
+                case "T":
+                    return "sap-icon://shipping-status";
+                default:
+                    return "sap-icon://status-inactive";
+            }
 }
 
 }

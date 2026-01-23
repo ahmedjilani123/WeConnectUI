@@ -1,4 +1,4 @@
-<mvc:View controllerName="aj.sap.weconnect.controller.Main"
+<mvc:View controllerName="weconnectg.controller.Main"
     displayBlock="true"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
@@ -23,13 +23,13 @@
                 <Label text="Welcome Ahmed !"></Label>
             </VBox>
             </HBox>
-            <Table items="{Modelm>/data}" autoPopinMode="true"  showUnread="true"  inset="true"  mode="SingleSelectLeft" alternateRowColors="true" headerText="Week List">
+            <Table items="{Modelm>/results}" selectionChange="EnableUPdateBtnHandler" autoPopinMode="true"  showUnread="true"  inset="true"  mode="SingleSelectLeft" alternateRowColors="true" headerText="Week List">
             <headerToolbar>
             <OverflowToolbar design="Solid">
             <Title text="Week List (0)"></Title>
             <ToolbarSpacer ></ToolbarSpacer>
-            <Button text="Update" press="onOpenDialogU"></Button>
-              <Button text="New"></Button>
+            <Button id="enableUpdateID" enabled="false" text="Add New Day" press="onOpenDialogU"></Button>
+              <Button text="New" enabled="{Modelm>/NewEnbled}" press="NewHandlerWeek"></Button>
             </OverflowToolbar>
             </headerToolbar>
             <columns>
@@ -59,40 +59,31 @@
             <items>
             <ColumnListItem type="Navigation" press="onDetailNavigate">
             <cells>
-            <Text text="{Modelm>weekNumber}"></Text>
+            <Text text="Week {Modelm>weekNo}"></Text>
             	<ObjectStatus
 						
-							text="{Modelm>currentDays} / {Modelm>totalDays}" 	icon="sap-icon://notes"
+							text="{Modelm>currDay} / {Modelm>totalDays}" 	icon="sap-icon://notes"
 							active="false"
-							inverted="true"
-							state="{path:'Modelm>status', formatter:'.formatter.statusText'}" />
+							inverted="true" state="Indication18"
+							 />
             
             
             
                     	 	
                 <Text text="{path:'Modelm>startDate',
-        type:'sap.ui.model.type.Date',
-        formatOptions:{
-            source:{
-                pattern:'yyyy-MM-dd'
-            }
-        }}"></Text>
+        type:'sap.ui.model.type.Date'}"></Text>
                 <Text text="{ path:'Modelm>endDate',
-        type:'sap.ui.model.type.Date',
-        formatOptions:{
-            source:{
-                pattern:'yyyy-MM-dd'
-            }
-        }}"></Text>
+        type:'sap.ui.model.type.Date'}"></Text>
                 	<ObjectStatus
 						
-							text="{Modelm>status}"
+							text="{path:'Modelm>status_code', formatter:'.formatter.statusText'}"
 							active="true"
-							inverted="false"
-							icon="sap-icon://complete"
-							state="Indication04" />
+                            press="StatusChangeHandler"
+							inverted="true"
+							icon="{path:'Modelm>status_code', formatter:'.formatter.statusIcon'}"
+							state="{path:'Modelm>status_code', formatter:'.formatter.statusS'}" />
                 
-                 	<ExpandableText textAlign="Begin" maxCharacters="40" wrappingType="Hyphenated" text="{Modelm>remark}" overflowMode="Popover" />
+                 	<ExpandableText textAlign="Begin" maxCharacters="40" wrappingType="Hyphenated" text="{Modelm>currRemark}" overflowMode="Popover" />
                    
                    
             </cells>

@@ -24,13 +24,13 @@
             </Annotation>
             <EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
                 <EntitySet Name="Weeks" EntityType="weconnect_srv.Weeks"/>
-                <FunctionImport Name="Weeks_UpdateStatus" ReturnType="weconnect_srv.ResponseObj" m:HttpMethod="POST" sap:action-for="weconnect_srv.Weeks">
-                    <Parameter Name="ID" Type="Edm.Guid" Nullable="false" Mode="In"/>
+                <EntitySet Name="DayWises" EntityType="weconnect_srv.DayWises"/>
+                <EntitySet Name="Status" EntityType="weconnect_srv.Status"/>
+                <FunctionImport Name="UpdateStatus" ReturnType="weconnect_srv.ResponseObj" m:HttpMethod="GET">
+                    <Parameter Name="ID" Type="Edm.Guid" Mode="In" Nullable="true"/>
                     <Parameter Name="status_code" Type="Edm.String" Mode="In" Nullable="true"/>
                     <Parameter Name="statusRemark" Type="Edm.String" Mode="In" Nullable="true"/>
                 </FunctionImport>
-                <EntitySet Name="DayWises" EntityType="weconnect_srv.DayWises"/>
-                <EntitySet Name="Status" EntityType="weconnect_srv.Status"/>
                 <AssociationSet Name="Weeks_status" Association="weconnect_srv.Weeks_status">
                     <End Role="Weeks" EntitySet="Weeks"/>
                     <End Role="Status" EntitySet="Status"/>

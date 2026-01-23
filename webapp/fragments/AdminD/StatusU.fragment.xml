@@ -1,0 +1,32 @@
+<core:FragmentDefinition xmlns:macros="sap.fe.macros" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m">
+<Dialog title="Update Notes">
+<customHeader>
+<OverflowToolbar >
+
+<Title text="Update Status"></Title>
+<ToolbarSpacer></ToolbarSpacer>
+
+<Text text="jan 23 ,2026"></Text>
+</OverflowToolbar>
+</customHeader>
+<content>
+<form:SimpleForm >
+<form:content>
+
+<Label text="Status"></Label>
+<Select items="{statusModel>/results}" forceSelection="false" selectedKey="{statusModel>/status_code}">
+<core:Item text="{statusModel>description}" key="{statusModel>code}"></core:Item>
+</Select>
+<Label text="Status Remark"></Label>
+<TextArea rows="2"  value="{statusModel>/statusRemark}"></TextArea>
+</form:content>
+</form:SimpleForm>
+</content>
+<beginButton>
+<Button text="Close" press="CloseUpdatePress"></Button>
+</beginButton>
+<endButton>
+<Button text="Update" press="onSaveUpdateSHandler"></Button>
+</endButton>
+</Dialog>
+</core:FragmentDefinition>
